@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>校验</title>
+</head>
+<body>
+    <div id="app">
+        <form onsubmit="return false">
+            邮箱<input type="text" name="email" :value="email">
+            <input type="button" value="发送验证码" @click="">
+            <span id="msg" style="color: red" v-text="msg"></span>
+            <br>
+            验证码<input type="text" name="checkcode" :value="checkCode">
+            <br>
+            <input type="button" value="注册" @click="">
+        </form>
+    </div>
+<script>
+    var vue = new Vue({
+        el:"#app",
+        data:{
+            email:"",
+            checkCode:"",
+            msg: ""
+        },
+        methods:{
+            sendEmail(){
+                axios.post("/check?email="+this.email).then(response=>{
+                    if (response.data.flags) {
+                        this.msg = "发送成功"
+                    }else {
+                        this.msg = "发送失败"
+                    }
+                })
+            }
+        },
+        created(){
+
+        }
+    });
+</script>
+</body>
+</html>
