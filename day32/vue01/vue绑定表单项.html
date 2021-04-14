@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="01_js库/vuejs-2.5.16.js"></script>
+</head>
+<body>
+    <div id="app">
+        <form>
+            用户名<input type="text" name="username" v-model="user.username"><br>
+            密码<input type="text" name="password" v-model="user.password"><br>
+            昵称<input type="text" name="nickname" v-model="user.nickname"><br>
+            地址<input type="text" name="address" v-model="user.address">
+        </form>
+        <input type="button" value="获取表单的数据" @click="obtainFormData()"><br>
+        <input type="button" value="回显表单数据" @click="setFormData()">
+    </div>
+<script>
+    var vue = new Vue({
+        el:"#app",
+        data:{
+            user:{}
+        },
+        methods:{
+            obtainFormData(){
+                console.log(this.user.username)
+                console.log(this.user.password)
+                console.log(this.user.nickname)
+                console.log(this.user.address)
+            },
+            setFormData(){
+               var userInfo = {username:"jian",
+                    password:"123",
+                    nickname:"sjf",
+                    address:"dfs"
+                }
+                this.user = userInfo
+            }
+        }
+    });
+</script>
+</body>
+</html>

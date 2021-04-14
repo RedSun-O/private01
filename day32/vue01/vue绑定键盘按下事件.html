@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="01_js库/vuejs-2.5.16.js"></script>
+</head>
+<body>
+<div id="app">
+    <input type="text" @keydown="fn1($event)">
+</div>
+<script>
+    var vue = new Vue({
+        el:"#app",
+        data:{
+
+        },
+        methods:{
+            fn1(e){
+                var keyCode = e.keyCode;
+                if (keyCode != 8) {
+                    if (keyCode < 48 || keyCode > 57) {
+                        e.preventDefault()
+                    }
+                }
+            }
+        }
+    });
+</script>
+</body>
+</html>

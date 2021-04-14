@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="01_js库/vuejs-2.5.16.js"></script>
+</head>
+<body>
+<div id="app">
+    <a v-bind:href="url">跳转到百度</a>
+    <a v-bind:href="'http://www.qq.com?id='+id">跳转到QQ</a>
+    <font v-bind:color="ys">hello</font>
+</div>
+<script>
+    var vue = new Vue({
+        el:"#app",
+        data:{
+            url:"http://www.baidu.com",
+            id:2,
+            ys:"red"
+        }
+    });
+</script>
+</body>
+</html>
